@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] - Your Application</title>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-controller="Product" asp-action="Index">Products</a></li>
+                <li><a asp-controller="Product" asp-action="Add">Add Product</a></li>
+                <li>
+                    <form asp-controller="Product" asp-action="GetProductsByPrice" method="get">
+                        <input type="number" name="price" step="0.01" placeholder="Price" />
+                        <button type="submit">Search by Price</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

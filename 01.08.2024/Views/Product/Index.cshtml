@@ -1,0 +1,29 @@
+﻿@model List<Product>
+
+<h2>Products</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <a asp-action="GetProductById" asp-route-id="@product.Id">GetProductById</a>
+                    <form asp-action="Remove" method="post">
+                        <input type="hidden" name="id" value="@product.Id" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
